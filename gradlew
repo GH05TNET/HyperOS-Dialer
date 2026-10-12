@@ -63,8 +63,7 @@ case "$(uname)" in
         # For Cygwin, switch paths to Windows format before running java
         CLASSPATH=$(cygpath --path --mixed "$CLASSPATH")
         JAVACMD=$(cygpath --unix "$JAVACMD")
-        ;;
-esac
+        ;; esac
 
 JVMOPTS="-Xmx64m -Xms64m"
 exec "${JAVACMD}" $JVMOPTS -classpath "${CLASSPATH}" org.gradle.wrapper.GradleWrapperMain "$@"
