@@ -18,17 +18,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-
-        ndk {
-            abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
-        }
-    }
-
-    signingConfigs {
-        create("release") {
-            // Signed APK is generated only when a release keystore is supplied.
-            // This project builds unsigned release APKs by default for CI compatibility.
-        }
     }
 
     buildTypes {
@@ -42,7 +31,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
@@ -61,12 +49,6 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.14"
-    }
-
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
     }
 }
 
